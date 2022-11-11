@@ -305,8 +305,6 @@ check_run_command_as_root() {
   # Allow Azure Pipelines/GitHub Actions/Docker/Concourse/Kubernetes to do everything as root (as it's normal there)
   [[ -f /.dockerenv ]] && return
   [[ -f /proc/1/cgroup ]] && grep -E "azpl_job|actions_job|docker|garden|kubepods" -q /proc/1/cgroup && return
-
-  abort "Don't run this as root!"
 }
 
 should_install_command_line_tools() {
